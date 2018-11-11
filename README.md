@@ -1,3 +1,158 @@
+# gradle sync执行后的log
+Executing tasks: [:app:generateDebugSources]
+
+settings中执行的代码
+settings评估完成（settins.gradle中代码执行完毕）
+项目结构加载完成（初始化阶段结束）
+初始化结束，可访问根项目：root project 'Gradle-Test'
+初始化阶段，耗时：17ms
+apply plugin java for root project 'Gradle-Test'
+repositories中执行的代码
+dependencies中执行的代码
+GradleTest build.gradle的配置阶段
+repositories中执行的代码
+repositories中执行的代码
+repositories中执行的代码
+我是顺序执行的
+gradle.rootProject.afterEvaluate，耗时：310ms
+rootProject evaluated
+ gradle.rootProject.afterEvaluate *************************
+apply plugin java for project ':app'
+app的配置阶段
+NDK is missing a "platforms" directory.
+If you are using NDK, verify the ndk.dir is set to a valid NDK directory.  It is currently set to C:\Users\hanjiahu\AppData\Local\Android\Sdk\ndk-bundle.
+If you are not using NDK, unset the NDK variable from ANDROID_NDK_HOME or local.properties to remove this warning.
+
+com.android.application中执行的代码结束
+app.dependencies中执行的代码
+app.dependencies中执行的代码结束
+Task中的配置代码
+Task中的配置代码2
+apply from中执行的代码结束 在配置階段執行，不在構建階段
+app.afterEvaluate *************************
+apply plugin java for project ':lib-java'
+lib-java中执行的代码
+所有项目评估完成（配置阶段结束）
+:app:preBuild UP-TO-DATE
+:app:preDebugBuild UP-TO-DATE
+:app:compileDebugAidl UP-TO-DATE
+:app:compileDebugRenderscript UP-TO-DATE
+:app:checkDebugManifest UP-TO-DATE
+:app:generateDebugBuildConfig UP-TO-DATE
+:app:prepareLintJar UP-TO-DATE
+:app:mainApkListPersistenceDebug UP-TO-DATE
+:app:generateDebugResValues UP-TO-DATE
+:app:generateDebugResources UP-TO-DATE
+:app:mergeDebugResources UP-TO-DATE
+:app:createDebugCompatibleScreenManifests UP-TO-DATE
+:app:processDebugManifest UP-TO-DATE
+:app:splitsDiscoveryTaskDebug UP-TO-DATE
+:app:processDebugResources UP-TO-DATE
+:app:generateDebugSources UP-TO-DATE
+
+BUILD SUCCESSFUL in 1s
+13 actionable tasks: 13 up-to-date
+构建结束
+root buildFinished
+app buildFinished
+
+# Android studio 运行编译后的log
+Executing tasks: [:app:assembleDebug]
+
+settings中执行的代码
+settings评估完成（settins.gradle中代码执行完毕）
+项目结构加载完成（初始化阶段结束）
+初始化结束，可访问根项目：root project 'Gradle-Test'
+初始化阶段，耗时：216ms
+apply plugin java for root project 'Gradle-Test'
+repositories中执行的代码
+dependencies中执行的代码
+GradleTest build.gradle的配置阶段
+repositories中执行的代码
+repositories中执行的代码
+repositories中执行的代码
+我是顺序执行的
+gradle.rootProject.afterEvaluate，耗时：2393ms
+rootProject evaluated
+ gradle.rootProject.afterEvaluate *************************
+apply plugin java for project ':app'
+app的配置阶段
+NDK is missing a "platforms" directory.
+If you are using NDK, verify the ndk.dir is set to a valid NDK directory.  It is currently set to C:\Users\hanjiahu\AppData\Local\Android\Sdk\ndk-bundle.
+If you are not using NDK, unset the NDK variable from ANDROID_NDK_HOME or local.properties to remove this warning.
+
+com.android.application中执行的代码结束
+app.dependencies中执行的代码
+app.dependencies中执行的代码结束
+Task中的配置代码
+Task中的配置代码2
+apply from中执行的代码结束 在配置階段執行，不在構建階段
+app.afterEvaluate *************************
+apply plugin java for project ':lib-java'
+lib-java中执行的代码
+所有项目评估完成（配置阶段结束）
+:app:beforeAssembleDebug
+doLast beforeAssembleDebug
+:app:buildInfoDebugLoader
+:app:preBuild UP-TO-DATE
+:app:preDebugBuild UP-TO-DATE
+:app:compileDebugAidl UP-TO-DATE
+:app:compileDebugRenderscript UP-TO-DATE
+:app:checkDebugManifest UP-TO-DATE
+:app:generateDebugBuildConfig UP-TO-DATE
+:app:prepareLintJar UP-TO-DATE
+:app:mainApkListPersistenceDebug UP-TO-DATE
+:app:generateDebugResValues UP-TO-DATE
+:app:generateDebugResources UP-TO-DATE
+:app:mergeDebugResources UP-TO-DATE
+:app:createDebugCompatibleScreenManifests UP-TO-DATE
+:app:processDebugManifest
+:app:splitsDiscoveryTaskDebug UP-TO-DATE
+:app:processDebugResources
+:app:generateDebugSources
+:app:javaPreCompileDebug UP-TO-DATE
+:app:compileDebugJavaWithJavac UP-TO-DATE
+:app:instantRunMainApkResourcesDebug UP-TO-DATE
+:app:mergeDebugShaders UP-TO-DATE
+:app:compileDebugShaders UP-TO-DATE
+:app:generateDebugAssets UP-TO-DATE
+:app:mergeDebugAssets UP-TO-DATE
+:app:validateSigningDebug UP-TO-DATE
+:app:processInstantRunDebugResourcesApk UP-TO-DATE
+:app:checkManifestChangesDebug
+:app:transformClassesWithExtractJarsForDebug UP-TO-DATE
+:app:transformClassesWithInstantRunVerifierForDebug UP-TO-DATE
+:app:transformClassesWithDependencyCheckerForDebug UP-TO-DATE
+:app:compileDebugNdk NO-SOURCE
+:app:mergeDebugJniLibFolders UP-TO-DATE
+:app:transformNativeLibsWithMergeJniLibsForDebug UP-TO-DATE
+:app:processDebugJavaRes NO-SOURCE
+:app:transformResourcesWithMergeJavaResForDebug UP-TO-DATE
+:app:transformNativeLibsAndResourcesWithJavaResourcesVerifierForDebug UP-TO-DATE
+:app:transformClassesWithInstantRunForDebug UP-TO-DATE
+:app:transformClassesEnhancedWithInstantReloadDexForDebug UP-TO-DATE
+:app:incrementalDebugTasks UP-TO-DATE
+:app:preColdswapDebug
+:app:fastDeployDebugExtractor UP-TO-DATE
+:app:generateDebugInstantRunAppInfo UP-TO-DATE
+:app:transformClassesWithInstantRunSlicerForDebug UP-TO-DATE
+:app:transformClassesWithDexBuilderForDebug UP-TO-DATE
+:app:transformDexArchiveWithExternalLibsDexMergerForDebug UP-TO-DATE
+:app:transformDexArchiveWithDexMergerForDebug UP-TO-DATE
+:app:transformDexWithInstantRunDependenciesApkForDebug UP-TO-DATE
+:app:transformDexWithInstantRunSlicesApkForDebug UP-TO-DATE
+:app:packageDebug UP-TO-DATE
+:app:buildInfoGeneratorDebug
+:app:compileDebugSources UP-TO-DATE
+:app:assembleDebug
+
+BUILD SUCCESSFUL in 16s
+44 actionable tasks: 7 executed, 37 up-to-date
+构建结束
+root buildFinished
+app buildFinished
+
+
 # Gradle基础 构建生命周期和Hook技术
 [https://juejin.im/post/5afec54951882542715001f2](https://juejin.im/post/5afec54951882542715001f2)
 任何Gradle的构建过程都分为三部分：初始化阶段、配置阶段和执行阶段。
