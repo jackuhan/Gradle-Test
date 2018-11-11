@@ -53,6 +53,31 @@ project.afterEvaluate {
 //        assembleDebug.dependsOn cleanTemp
 }
 
+tasks.whenTaskAdded {
+       task ->
+        println 'root '+task.name+'tasks.whenTaskAdded'
+        if (task.name.equals("assembleDebug")) {
+            println 'task.name.equals  afterAssembleDebug'
+            afterAssembleDebug.dependsOn assembleDebug
+        }
+
+        if (task.name.contains("assembleDebug")) {
+            task.getDependsOn().add({
+                // add your logic here
+                println 'root getDependsOn.add doLast afterAssembleDebug'
+            })
+        }
+}
+
+gradle.taskGraph.whenReady {
+    taskGraph ->
+//    println 'root gradle.taskGraph.whenReady'
+//    if (taskGraph.hasTask(release)) {
+//        version = '1.0'
+//    } else {
+//        version = '1.0-SNAPSHOT'
+//    }
+}
 
 
 println '我是顺序执行的'

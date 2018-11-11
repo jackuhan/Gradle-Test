@@ -1,158 +1,3 @@
-# gradle sync执行后的log
-Executing tasks: [:app:generateDebugSources]
-
-settings中执行的代码
-settings评估完成（settins.gradle中代码执行完毕）
-项目结构加载完成（初始化阶段结束）
-初始化结束，可访问根项目：root project 'Gradle-Test'
-初始化阶段，耗时：17ms
-apply plugin java for root project 'Gradle-Test'
-repositories中执行的代码
-dependencies中执行的代码
-GradleTest build.gradle的配置阶段
-repositories中执行的代码
-repositories中执行的代码
-repositories中执行的代码
-我是顺序执行的
-gradle.rootProject.afterEvaluate，耗时：310ms
-rootProject evaluated
- gradle.rootProject.afterEvaluate *************************
-apply plugin java for project ':app'
-app的配置阶段
-NDK is missing a "platforms" directory.
-If you are using NDK, verify the ndk.dir is set to a valid NDK directory.  It is currently set to C:\Users\hanjiahu\AppData\Local\Android\Sdk\ndk-bundle.
-If you are not using NDK, unset the NDK variable from ANDROID_NDK_HOME or local.properties to remove this warning.
-
-com.android.application中执行的代码结束
-app.dependencies中执行的代码
-app.dependencies中执行的代码结束
-Task中的配置代码
-Task中的配置代码2
-apply from中执行的代码结束 在配置階段執行，不在構建階段
-app.afterEvaluate *************************
-apply plugin java for project ':lib-java'
-lib-java中执行的代码
-所有项目评估完成（配置阶段结束）
-:app:preBuild UP-TO-DATE
-:app:preDebugBuild UP-TO-DATE
-:app:compileDebugAidl UP-TO-DATE
-:app:compileDebugRenderscript UP-TO-DATE
-:app:checkDebugManifest UP-TO-DATE
-:app:generateDebugBuildConfig UP-TO-DATE
-:app:prepareLintJar UP-TO-DATE
-:app:mainApkListPersistenceDebug UP-TO-DATE
-:app:generateDebugResValues UP-TO-DATE
-:app:generateDebugResources UP-TO-DATE
-:app:mergeDebugResources UP-TO-DATE
-:app:createDebugCompatibleScreenManifests UP-TO-DATE
-:app:processDebugManifest UP-TO-DATE
-:app:splitsDiscoveryTaskDebug UP-TO-DATE
-:app:processDebugResources UP-TO-DATE
-:app:generateDebugSources UP-TO-DATE
-
-BUILD SUCCESSFUL in 1s
-13 actionable tasks: 13 up-to-date
-构建结束
-root buildFinished
-app buildFinished
-
-# Android studio 运行编译后的log
-Executing tasks: [:app:assembleDebug]
-
-settings中执行的代码
-settings评估完成（settins.gradle中代码执行完毕）
-项目结构加载完成（初始化阶段结束）
-初始化结束，可访问根项目：root project 'Gradle-Test'
-初始化阶段，耗时：216ms
-apply plugin java for root project 'Gradle-Test'
-repositories中执行的代码
-dependencies中执行的代码
-GradleTest build.gradle的配置阶段
-repositories中执行的代码
-repositories中执行的代码
-repositories中执行的代码
-我是顺序执行的
-gradle.rootProject.afterEvaluate，耗时：2393ms
-rootProject evaluated
- gradle.rootProject.afterEvaluate *************************
-apply plugin java for project ':app'
-app的配置阶段
-NDK is missing a "platforms" directory.
-If you are using NDK, verify the ndk.dir is set to a valid NDK directory.  It is currently set to C:\Users\hanjiahu\AppData\Local\Android\Sdk\ndk-bundle.
-If you are not using NDK, unset the NDK variable from ANDROID_NDK_HOME or local.properties to remove this warning.
-
-com.android.application中执行的代码结束
-app.dependencies中执行的代码
-app.dependencies中执行的代码结束
-Task中的配置代码
-Task中的配置代码2
-apply from中执行的代码结束 在配置階段執行，不在構建階段
-app.afterEvaluate *************************
-apply plugin java for project ':lib-java'
-lib-java中执行的代码
-所有项目评估完成（配置阶段结束）
-:app:beforeAssembleDebug
-doLast beforeAssembleDebug
-:app:buildInfoDebugLoader
-:app:preBuild UP-TO-DATE
-:app:preDebugBuild UP-TO-DATE
-:app:compileDebugAidl UP-TO-DATE
-:app:compileDebugRenderscript UP-TO-DATE
-:app:checkDebugManifest UP-TO-DATE
-:app:generateDebugBuildConfig UP-TO-DATE
-:app:prepareLintJar UP-TO-DATE
-:app:mainApkListPersistenceDebug UP-TO-DATE
-:app:generateDebugResValues UP-TO-DATE
-:app:generateDebugResources UP-TO-DATE
-:app:mergeDebugResources UP-TO-DATE
-:app:createDebugCompatibleScreenManifests UP-TO-DATE
-:app:processDebugManifest
-:app:splitsDiscoveryTaskDebug UP-TO-DATE
-:app:processDebugResources
-:app:generateDebugSources
-:app:javaPreCompileDebug UP-TO-DATE
-:app:compileDebugJavaWithJavac UP-TO-DATE
-:app:instantRunMainApkResourcesDebug UP-TO-DATE
-:app:mergeDebugShaders UP-TO-DATE
-:app:compileDebugShaders UP-TO-DATE
-:app:generateDebugAssets UP-TO-DATE
-:app:mergeDebugAssets UP-TO-DATE
-:app:validateSigningDebug UP-TO-DATE
-:app:processInstantRunDebugResourcesApk UP-TO-DATE
-:app:checkManifestChangesDebug
-:app:transformClassesWithExtractJarsForDebug UP-TO-DATE
-:app:transformClassesWithInstantRunVerifierForDebug UP-TO-DATE
-:app:transformClassesWithDependencyCheckerForDebug UP-TO-DATE
-:app:compileDebugNdk NO-SOURCE
-:app:mergeDebugJniLibFolders UP-TO-DATE
-:app:transformNativeLibsWithMergeJniLibsForDebug UP-TO-DATE
-:app:processDebugJavaRes NO-SOURCE
-:app:transformResourcesWithMergeJavaResForDebug UP-TO-DATE
-:app:transformNativeLibsAndResourcesWithJavaResourcesVerifierForDebug UP-TO-DATE
-:app:transformClassesWithInstantRunForDebug UP-TO-DATE
-:app:transformClassesEnhancedWithInstantReloadDexForDebug UP-TO-DATE
-:app:incrementalDebugTasks UP-TO-DATE
-:app:preColdswapDebug
-:app:fastDeployDebugExtractor UP-TO-DATE
-:app:generateDebugInstantRunAppInfo UP-TO-DATE
-:app:transformClassesWithInstantRunSlicerForDebug UP-TO-DATE
-:app:transformClassesWithDexBuilderForDebug UP-TO-DATE
-:app:transformDexArchiveWithExternalLibsDexMergerForDebug UP-TO-DATE
-:app:transformDexArchiveWithDexMergerForDebug UP-TO-DATE
-:app:transformDexWithInstantRunDependenciesApkForDebug UP-TO-DATE
-:app:transformDexWithInstantRunSlicesApkForDebug UP-TO-DATE
-:app:packageDebug UP-TO-DATE
-:app:buildInfoGeneratorDebug
-:app:compileDebugSources UP-TO-DATE
-:app:assembleDebug
-
-BUILD SUCCESSFUL in 16s
-44 actionable tasks: 7 executed, 37 up-to-date
-构建结束
-root buildFinished
-app buildFinished
-
-
 # Gradle基础 构建生命周期和Hook技术
 [https://juejin.im/post/5afec54951882542715001f2](https://juejin.im/post/5afec54951882542715001f2)
 任何Gradle的构建过程都分为三部分：初始化阶段、配置阶段和执行阶段。
@@ -161,43 +6,61 @@ app buildFinished
 
 ![图片](https://user-gold-cdn.xitu.io/2018/7/3/1645f7712096f3e6?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
 
-# 动态改变Task依赖关系
- 
-有时我们需要在一个已有的构建系统中插入我们自己的构建任务，比如在执行Java构建后我们想要删除构建过程中产生的临时文件，那么我们就可以自定义一个名叫cleanTemp的任务，让其依赖于build任务，然后调用cleanTemp任务即可。 但是这种方式适用范围太小，比如在使用IDE执行构建时，IDE默认就是调用build任务，我们没法修改IDE的行为，所以我们需要将自定义的任务插入到原有的任务关系中。
-
-
-# gradle向构建过程添加自定义任务
+# dependOn DAG
 [https://blog.csdn.net/sergeycao/article/details/54341813](https://blog.csdn.net/sergeycao/article/details/54341813)
 使用dependOn属性将任务插入到有向无环图中。
 讨论
 在初始化阶段，Gradle根据它们的依赖性将任务组合成一个序列。结果是DAG。例如，Gradle文档形成了Java插件的DAG，如图4-1所示。
 
-
-# Android Gradle 自定义Task详解二：进阶
-[https://blog.csdn.net/zhaoyanjun6/article/details/78523958?locationNum=3&fps=1](https://blog.csdn.net/zhaoyanjun6/article/details/78523958?locationNum=3&fps=1)
-在 app 的 build.gradle 用
-apply from:"../util.gradle"
-// ../代表根目录
-
-这样在 build.gradle 就可以用 copyFile task 了，build.gradle具体实现下代码apply from:"../util.gradle"
-//在task被添加的时候定义依赖关系
-tasks.whenTaskAdded {
-    task ->
-        if (task.name.equals("assembleRelease")) {
-            copyFile.dependsOn assembleRelease
-        }
+# 自定义Task并使得原有Task依赖它--afterEvaluate
+app的buile.gradle
+```
+apply from: rootProject.file('tasks/tasks1.gradle')
+project.afterEvaluate {
+    println 'app的build文件************************* '
+    assembleDebug.dependsOn beforeAssembleDebug
 }
+```
+
+task1.gradle
+```
+task afterAssembleDebug() {
+    doLast {
+        println '111doLast afterAssembleDebug'
+    }
+}
+```
+
+# 自定义Task并依赖原有Task--whenTaskAdded 
+[https://blog.csdn.net/zhaoyanjun6/article/details/78523958?locationNum=3&fps=1](https://blog.csdn.net/zhaoyanjun6/article/details/78523958?locationNum=3&fps=1)
+在 app的 build.gradle 添加
+apply from:"../util.gradle"
+这样在 app的build.gradle 就可以用 copyFile task 了
+
+//在app的build.gradle中添加如下
+apply from:"../util.gradle"
+//在task被添加的时候定义依赖关系
+```
+tasks.whenTaskAdded {
+    task ->
+        if (task.name.contains("assembleDebug")) {
+            task.getDependsOn().add({
+                println 'app getDependsOn doLast afterAssembleDebug'
+                afterAssembleDebug//可以直接执行这个task或者说是依赖
+            })
+        }
+}
+```
+
 util.gradle如图
 ![图片](https://img-blog.csdn.net/20171117165014556?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvemhhb3lhbmp1bjY=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
 # 
-# [Gradle的执行顺序](https://segmentfault.com/q/1010000004503896)
-[https://segmentfault.com/q/1010000004503896](https://segmentfault.com/q/1010000004503896)
-## gradle的解析顺序
+# [Gradle的执行顺序](https://segmentfault.com/q/1010000004503896)和生命周期函数
+## gradle的解析顺序如下
 rootproject 的setting.gradle,然后是rootproject的build.gradle,然后是各个subproject。所以project下的build.gradle会先于app下的build.gradle。
-## *** apply from ***
-在build.gradle中，我们可以通过apply plugin:*** 引入插件，也可以通过 apply from ***.gradle引入其他gradle脚本中的函数定义或task等
+在build.gradle中，我们可以通过apply plugin:*** 引入插件，也可以通过 ******apply from****** ***.gradle引入其他gradle脚本中的函数定义或task等。
 ## gradle里的钩子
-你说的check，clean实际是task，**一般hook我们指的是gradle的生命周期**：
+**一般hook我们指的是gradle的生命周期**：
 在解析setting.gradle之后，开始解析build.gradle之前，这里如果要干些事情（更改build.gradle校本内容），可以写在beforeEvaluate
 >举个例子，我们将我们的一个subproject中的apply plugin改掉，原来是一个library工程，我们希望它被当作application处理：
 ```
@@ -242,14 +105,13 @@ project.assemble.doFirst {
 # 全面理解Gradle - 执行时序
 [https://blog.csdn.net/singwhatiwanna/article/details/78797506](https://blog.csdn.net/singwhatiwanna/article/details/78797506)
 Gradle脚本的执行分为三个过程：
-
-初始化 
+## 初始化 
 分析有哪些module将要被构建，为每个module创建对应的 project实例。这个时候settings.gradle文件会被解析。
-
-配置：处理所有的模块的 build 脚本，处理依赖，属性等。这个时候每个模块的build.gradle文件会被解析并配置，这个时候会构建整个task的链表（这里的链表仅仅指存在依赖关系的task的集合，不是数据结构的链表）。
-
-执行：根据task链表来执行某一个特定的task，这个task所依赖的其他task都将会被提前执行。
-# 插件
+## 配置
+处理所有的模块的 build 脚本，处理依赖，属性等。这个时候每个模块的build.gradle文件会被解析并配置，这个时候会构建整个task的链表（这里的链表仅仅指存在依赖关系的task的集合，不是数据结构的链表）。
+## 执行
+根据task链表来执行某一个特定的task，这个task所依赖的其他task都将会被提前执行。
+# Gradle插件
 [https://benweizhu.gitbooks.io/gradle-best-practice/content/plugin.html](https://benweizhu.gitbooks.io/gradle-best-practice/content/plugin.html)
 
 **脚本插件**，其实就是存在另一个脚本文件（other.gradle）的一段脚本代码，通常情况下存放在同一个构建项目下，主要作用是抽取逻辑，让关注点分离（separate of concern）。
@@ -261,22 +123,6 @@ apply plugin: 'java' // 使用二进制插件
 ```
 使用插件的方式是调用Project对象的Project.apply(java.util.Map)方法。在二进制插件的使用中，传入的参数（比如‘java’），叫做plugin id。这个id必须是唯一的，一些核心的插件，Gradle给他们提供了简短的名字，比如：java。而社区的插件，名字则会采用完整名字，比如：me.zeph.database。
 
-
-# gradle 任务依赖实现复制任务。
-
-[https://blog.csdn.net/Hello___Sunshine/article/details/60140039](https://blog.csdn.net/Hello___Sunshine/article/details/60140039)
-使用任务依赖
- 配置一个复制task,依赖于生成补丁包task，生成补丁包task执行顺序位于复制之前，执行复制task时，就会先生成补丁包然后再去执行复制。
- def patchSource  = "${buildDir}/outputs/patch/release";
- def patchCopy  ="${rootDir}/patchApk"
-
-task generatePtachRelease (type: Copy) {
-    dependsOn ':app:buildTinkerPatchRelease'
-    //切记不要加doFirst 
-    from patchSource
-    into patchCopy
-}
-再去执行generatePtachRelease 时，会首先去执行app:buildTinkerPatchRelease任务，然后在执行复制，至此基本实现本需求。
 
 # Android Gradle复制打包的apk到固定目录
 [https://blog.csdn.net/guijiaoba/article/details/42655437](https://blog.csdn.net/guijiaoba/article/details/42655437)

@@ -132,6 +132,19 @@ task hello15(dependsOn: ['hello1', 'hello2']) {
         println "task1===========编译任务名称, $hello15.name"
     }
 }
+
+
+
+task afterAssembleDebug() {
+    doLast {
+        println '111doLast afterAssembleDebug'
+    }
+}
+
+
+
+
+
 //远程执行任务
 //-b 参数用以指定脚本具体所在位置
 //-p 参数用以指定脚本目录即可

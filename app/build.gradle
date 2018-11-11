@@ -79,11 +79,33 @@ task beforeAssembleDebug() {
     }
 }
 
-//task afterAssembleDebug(dependsOn: assembleDebug) {
-//    doLast {
-//        println 'doLast afterAssembleDebug'
+tasks.whenTaskAdded {
+    task ->
+        println 'app '+task.name+' tasks.whenTaskAdded'
+//        if (task.name.equals("assembleDebug")) {
+//            println 'app task.name.equals("assembleDebug")'
+//            afterAssembleDebug
+////            afterAssembleDebug.dependsOn assembleDebug
+//        }
+
+        if (task.name.contains("assembleDebug")) {
+            task.getDependsOn().add({
+                // add your logic here
+                println 'app getDependsOn doLast afterAssembleDebug'
+                afterAssembleDebug//可以直接执行这个task
+            })
+        }
+}
+
+gradle.taskGraph.whenReady {
+    taskGraph ->
+//    println 'app gradle.taskGraph.whenReady'
+//    if (taskGraph.hasTask(release)) {
+//        version = '1.0'
+//    } else {
+//        version = '1.0-SNAPSHOT'
 //    }
-//}
+}
 
 
 
