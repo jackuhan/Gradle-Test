@@ -1,0 +1,96 @@
+apply plugin: 'com.github.johnrengelman.shadow'
+
+def downloadJarPath = project.file("download/jar")
+def libs = project.file("libs")
+def appLibs = rootProject.findProject("app").file("libs")
+def propertiesFile = project.file("version.properties")
+def propertiesPath = propertiesFile.path
+
+def groupName = "lfp"
+
+Properties properties = new Properties()
+properties.load(new FileInputStream(propertiesPath))
+def versionCode = properties.getProperty("versionCode")
+def versionName = properties.getProperty("versionName")
+
+shadowJar {
+    baseName = 'shadow-all'
+    classifier = null
+    version = versionName
+}
+
+task copyDownloadToLibs(type: Copy, group: groupName) {
+    from downloadJarPath
+    into libs
+    doLast {
+        println "downloadJarPath is $downloadJarPath"
+        println "libs is $libs"
+    }
+}
+
+task cleanLibs(type: Delete, group: groupName) {
+    delete libs
+    followSymlinks true
+    doLast {
+        println "删除 $project.name libs的目录成功"
+    }
+}
+
+task copyJarToAppLibs(type: Sync, group: groupName) {
+    from "$buildDir/libs/"
+    into appLibs
+    include "**/*.jar"
+    doLast {
+        versionCode = versionCode.toInteger() + 1
+        versionName = getJenkinsBuild()
+
+        def newVersionCode = "versionCode = $versionCode"
+        def newVersionName = "versionName = $versionName"
+
+        println "newVersionCode is $newVersionCode, newVersionName is $newVersionName"
+        propertiesFile.write(newVersionCode + System.lineSeparator() + newVersionName)
+    }
+}
+
+task buildJar(group: groupName) {}
+buildJar.dependsOn shadowJar
+shadowJar.dependsOn copyDownloadToLibs
+shadowJar.finalizedBy copyJarToAppLibs
+
+static def getDate() {
+    return new Date().format('MMddHHmmss')
+}
+
+def getJenkinsBuild() {
+    boolean flag = isInJenkins()
+    if (flag) {
+        ext.env = System.getenv()
+        ext.buildNumber = env.BUILD_NUMBER?.toInteger()
+        return "$buildNumber"
+    } else {
+        return getDate()
+    }
+}
+
+
+static boolean isInJenkins() {
+    Map<String, String> map = System.getenv()
+
+    if (map == null) {
+        return false
+    }
+    String str = map.get("Path")
+    if (str != null) {
+        //it's windows
+        return false
+    } else {
+        str = ""
+        Iterator it = map.iterator()
+        while (it.hasNext()) {
+            str += it.next()
+        }
+        return str.contains("jenkins")
+    }
+}
+
+//flatDir dirs: ["$projectDir/libs1", "$projectDir/libs2"]

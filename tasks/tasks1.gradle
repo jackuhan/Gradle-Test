@@ -1,0 +1,139 @@
+//gradle生命周期，初始化，配置和执行
+//执行命令 项目根目录执行./gradlew 模块:task
+//如执行app中的hello任务，则执行./gradlew app:hello
+task hello {
+//    println "配置开始，执行任务hello"
+    doFirst {
+        println "task1===========执行开始之前, 执行任务hello"
+    }
+    //执行阶段，只有在运行该任务时，才会启动
+    doLast {
+        println "task1===========执行开始之后，执行任务hello"
+    }
+}
+
+task hello1 {
+    doFirst {
+        println "task1===========执行hello1 first"
+    }
+    doLast {
+        println "task1===========执行hello1 last"
+    }
+}
+
+task hello2 {
+    doFirst {
+        println "task1===========执行hello2 first"
+    }
+    doLast {
+        println "task1===========执行hello2 last"
+    }
+}
+//执行hello1时，先执行hello2
+//hello1.dependsOn hello2
+
+//依赖执行的第二种方法
+task hello3(dependsOn: hello1) {
+    doLast {
+        println '执行hello3'
+    }
+}
+
+task hello4 {
+    doLast {
+        if (System.console() != null) {
+            System.console().readPassword("\nKeystore password: ")
+        } else {
+            println "task1===========获取不到控制台实例"
+        }
+    }
+}
+
+task hello5 {
+    doLast {
+        4.times {
+//          it代表闭包的参数，相当于this
+            print "task1===========$it "
+        }
+    }
+}
+
+task hello6 {
+    doLast {
+        println "task1===========执行任务hello6"
+    }
+    task "task1===========hello7" {
+        doLast {
+            println "task1===========动态创建任务hello7"
+        }
+    }
+}
+
+task hello8 {
+    doLast {
+        println "task1===========我的名字叫$hello8.name"
+    }
+}
+
+task hello9 {
+    doLast {
+        //常规输出，默认界别QUIET，所以debug\info级别不会输出
+        println "task1===========hello9 gradle"
+        //这个只在输入-i或者-info时，才会输出(./gradlew hello9 -i(-info))
+        logger.info(String.format("我正在使用%s", "task1===========gradle hello9"))
+    }
+}
+
+task hello10 {
+    logging.captureStandardOutput LogLevel.LIFECYCLE
+    doLast {
+//        logging.captureStandardOutput LogLevel.DEBUG
+        println "task1===========current log level is $logging.level"
+        logger.info(String.format("我正在使用%s", "task1=========== info gradle hello10"))
+        logger.lifecycle(String.format("我正在使用%s", "task1=========== lifecycle gradle hello10"))
+        logger.error(String.format("我正在使用%s", "task1===========error gradle hello10"))
+    }
+}
+
+task hello11 {
+    doFirst {
+        println "task1===========测试依赖-x,println $hello11.name"
+    }
+    doLast {
+        logger.info("测试依赖-x的使用, $hello11.name")
+    }
+}
+//./gradlew app:hello13 -x hello12(排除执行hello2)
+task hello12 {
+    doFirst {
+        println "task1===========测试依赖-x,println $hello12.name"
+    }
+    doLast {
+        logger.info("测试依赖-x的使用, $hello12.name")
+    }
+}
+
+task hello13(dependsOn: ['hello11', 'hello12']) {
+    doFirst {
+//        LoggingManager manager = getLogger()
+//        manager.captureStandardError LogLevel.INFO
+        logger.info("测试依赖-x的使用, first, hello113")
+    }
+    doLast {
+        logger.info("测试依赖-x的使用, last, hello113")
+    }
+}
+//hello15依赖两个任务hello1, hello2,一般是按照task的名称顺序执行，但是为了保证一定按顺序，可以使用mustRunAfter
+//hello1.mustRunAfter hello2(表示执行完hello2以后，才能执行hello1,两者之间没有依赖关系)
+//可以注释掉hello1.mustRunAfter hello2看下效果
+task hello15(dependsOn: ['hello1', 'hello2']) {
+    hello1.mustRunAfter hello2
+    doLast {
+        println "task1===========编译任务名称, $hello15.name"
+    }
+}
+//远程执行任务
+//-b 参数用以指定脚本具体所在位置
+//-p 参数用以指定脚本目录即可
+//./gradlew -p /Users/fangpenglin/Downloads/003.project/android/FtThemePark5.0/ hello(task人物名称)
+defaultTasks 'app:hello1', 'app:hello2'

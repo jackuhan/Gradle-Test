@@ -1,0 +1,21 @@
+//可以使用./gradlew task di简化任务名
+task distribution {
+    doLast {
+        println "task2===========We build the zip with version=$version"
+    }
+}
+
+//IncrementalReverseTask
+task release(dependsOn: 'distribution') {
+    doLast {
+        println 'task2===========We release now'
+    }
+}
+
+gradle.taskGraph.whenReady {taskGraph ->
+    if (taskGraph.hasTask(release)) {
+        version = '1.0'
+    } else {
+        version = '1.0-SNAPSHOT'
+    }
+}

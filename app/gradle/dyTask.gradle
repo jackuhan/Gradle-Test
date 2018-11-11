@@ -1,0 +1,18 @@
+def setting = rootProject.file("settings.gradle")
+String libDirector = "lib-java"
+def lib = "include ':$libDirector'"
+
+task writeLibs() {
+    doLast {
+        if (isCompileLibs(libDirector)) {
+            setting.withWriterAppend {w ->
+                w.append(System.lineSeparator() + lib)
+            }
+        }
+    }
+}
+
+def isCompileLibs(String lib) {
+    println "libDirector is $lib"
+    return rootProject.file(lib).isDirectory()
+}

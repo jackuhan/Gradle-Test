@@ -1,0 +1,93 @@
+println 'app的配置阶段'
+apply plugin: 'com.android.application'
+println 'com.android.application中执行的代码结束'
+
+
+
+android {
+    compileSdkVersion 27
+    defaultConfig {
+        applicationId "hytch.ftthemepark.gradle_test"
+        minSdkVersion 21
+        targetSdkVersion 27
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    println 'app.dependencies中执行的代码'
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.android.support:appcompat-v7:27.1.1'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.2'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+}
+
+println 'app.dependencies中执行的代码结束'
+
+task testaaa() {
+    println 'Task中的配置代码'
+    // 定义一个闭包
+    def a = {
+        println 'Task中的配置代码2'
+    }
+    // 执行闭包
+    a()
+    doFirst {
+        println '这段代码配置阶段不执行'
+    }
+}
+
+apply from: rootProject.file('tasks/tasks1.gradle')
+apply from: project.file('gradle/dyTask.gradle')
+
+build.doLast {
+    def today = new Date().format('yyyyMMdd')
+    println 'build.doLast'
+//    def name = 'authSdk';
+//    copy{
+//        from('build/intermediates/bundles/release')
+//        into('output/' + today)
+//        include('classes.jar')
+//        rename('classes.jar', name +'-' + today + '-release' + '.jar')
+//    }
+}
+
+
+gradle.buildFinished {
+    println 'app buildFinished '
+}
+
+project.afterEvaluate {
+    println 'app.afterEvaluate ************************* '
+    assembleDebug.dependsOn beforeAssembleDebug
+}
+
+
+task beforeAssembleDebug() {
+    doLast {
+        println 'doLast beforeAssembleDebug'
+    }
+}
+
+//task afterAssembleDebug(dependsOn: assembleDebug) {
+//    doLast {
+//        println 'doLast afterAssembleDebug'
+//    }
+//}
+
+
+
+
+
+
+println 'apply from中执行的代码结束 在配置階段執行，不在構建階段'
